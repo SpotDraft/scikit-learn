@@ -349,6 +349,7 @@ class OneVsRestClassifier(BaseEstimator, ClassifierMixin, MetaEstimatorMixin,
 
         if not self.multilabel_:
             # Then, probabilities should be normalized to 1.
+            Y = Y.astype(float)
             Y /= np.sum(Y, axis=1)[:, np.newaxis]
         return Y
 
